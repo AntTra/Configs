@@ -1,0 +1,48 @@
+AstroNvim theme setup — commands to run
+========================================
+
+Note: Neovim plugins aren't installed with a package-manager command like
+`apt install` — you declare the plugin in a .lua file (already done for you:
+lua/plugins/colorscheme.lua and lua/plugins/dashboard.lua), then let lazy.nvim
+sync them. The steps below do that.
+
+1. (Recommended) Install a Nerd Font on your system so icons render correctly.
+   Without one, file-type icons in the sidebar/tabline/statusline show as boxes.
+
+   Linux (example: JetBrainsMono Nerd Font):
+     mkdir -p ~/.local/share/fonts
+     cd ~/.local/share/fonts
+     curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+     unzip JetBrainsMono.zip -d JetBrainsMono
+     fc-cache -fv
+
+   Then set your TERMINAL (not nvim) to use "JetBrainsMono Nerd Font" as its font.
+
+2. Launch Neovim normally:
+     nvim
+
+3. Inside Neovim, install/sync the new plugins:
+     :Lazy sync
+
+   This installs folke/tokyonight.nvim (the theme) and updates snacks.nvim
+   (the dashboard) with your new config. Wait for it to finish, then:
+     :qa
+
+4. Relaunch Neovim to see it:
+     nvim
+
+   - You should land on the custom dashboard (front page) automatically.
+   - Colorscheme should now be Tokyo Night.
+
+5. If the colorscheme doesn't look right, verify it applied:
+     :colorscheme tokyonight-night
+
+   (Other built-in variants: tokyonight-storm, tokyonight-moon, tokyonight-day —
+   change the `style` field in lua/plugins/colorscheme.lua to switch permanently.)
+
+Troubleshooting
+---------------
+- If `:Lazy sync` shows errors, run `:Lazy log` to see details.
+- If icons are missing/boxes, it's the Nerd Font — not a plugin issue, see step 1.
+- To roll back the theme, edit lua/plugins/astroui.lua and change
+  `colorscheme = "tokyonight"` back to `colorscheme = "astrodark"`.
