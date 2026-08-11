@@ -1,0 +1,26 @@
+# Cuz Im lazy
+alias upgrade='sudo apt update; sudo apt upgrade'
+alias vortex='tmux new -A -s Vortex'
+alias synapse='tmux new -A -s Synapse'
+
+# My TouchScreen is acting like a Wacom tablet, so change functionality
+alias fix-touch='xinput map-to-output $(xinput list | grep -i "finger touch" | grep -oP "id=\K[0-9]+") DP-1'
+alias fix-scroll='xinput set-prop "Wacom TouchScreen Finger touch" 595 1'
+
+# Spotify doesn't work normally for Ubuntu 22.04. Deb is not supported and snap sucks
+alias spot='flatpak run com.spotify.Client --audio-api=pulseaudio'
+
+# Useful navigation aliases
+alias ..='cd ..'
+alias ...='cd .. ; cd ..'
+alias ....='cd .. ; cd .. ; cd ..'
+alias .....='cd .. ; cd .. ; cd .. ; cd ..'
+
+# ROS2 aliases
+alias s='source install/setup.bash'
+alias cb='colcon build --symlink-install --packages-select'
+
+set -o vi
+
+tmux
+fortune | cowsay -f eyes | lolcat
