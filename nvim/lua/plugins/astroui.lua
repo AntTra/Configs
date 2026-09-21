@@ -21,6 +21,12 @@ return {
         -- Normal = { bg = "#000000" },
       },
     },
+    -- show the current mode name (NORMAL, INSERT, VISUAL...) in the statusline
+    status = {
+      components = {
+        mode = { mode_text = { pad_text = "center" } },
+      },
+    },
     -- Icons can be configured throughout the interface
     icons = {
       -- configure the loading of the lsp in the status line
